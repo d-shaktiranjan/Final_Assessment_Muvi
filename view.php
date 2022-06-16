@@ -56,7 +56,7 @@ function getUserName($id)
                     <td>' . $data["effort"] . '</td>
                     <td>' . $data["pod"] . '</td>
                     <td>' . getUserName($data["assignTo"]) . '</td>
-                    <td>' . $data["file"] . '</td>
+                    <td>' . '<a href="' . $data["file"] . '">View</a>' . '</td>
                     </tr>';
                 }
                 ?>

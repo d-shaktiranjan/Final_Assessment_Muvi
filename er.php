@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     move_uploaded_file($tempFile, $path);
 
     // db insert part
-    $sql = "INSERT INTO `er_data` (`title`, `descriptions`, `category`, `priority`, `effort`, `pod`, `assignTo`, `file`) VALUES ('$title', '$descriptions', '$category', '$priority', '$effort', '$pod', '$assignTo', '')";
+    $sql = "INSERT INTO `er_data` (`title`, `descriptions`, `category`, `priority`, `effort`, `pod`, `assignTo`, `file`) VALUES ('$title', '$descriptions', '$category', '$priority', '$effort', '$pod', '$assignTo', '$path')";
     $res = mysqli_query($conn, $sql);
     if ($res) $isAdded = true;
     else $isError = true;
@@ -99,12 +99,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="form mb-3 col">
                     <label for="assignTo" class="form-label">Assigned to</label>
-                    <select id="datalistOptions" name="assignTo">
+                    <select id="datalistOptions" class="form-select" name="assignTo">
                     </select>
                 </div>
                 <div class="mb-3 col">
                     <label for="file" class="form-label">Add Attachment</label>
-                    <input type="file" class="form-control" id="file" name="file">
+                    <input type="file" class="form-control" id="file" name="file" required>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
