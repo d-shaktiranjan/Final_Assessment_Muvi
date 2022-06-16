@@ -21,13 +21,14 @@ function getUserName($id)
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/view.css">
     <title>View All ER</title>
 </head>
 
 <body>
     <?php include_once "utils/navbar.php" ?>
     <div class="container mt-3">
-        <input type="text" name="" id="search" float="right">
+        <input type="text" name="" id="search" class="search" placeholder="Search">
         <table class="table">
             <thead>
                 <tr>
