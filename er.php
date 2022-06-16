@@ -100,11 +100,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form mb-3 col">
                     <label for="assignTo" class="form-label">Assigned to</label>
                     <select id="datalistOptions" class="form-select" name="assignTo">
+                        <option value="" hidden>Select</option>
                     </select>
                 </div>
                 <div class="mb-3 col">
                     <label for="file" class="form-label">Add Attachment</label>
-                    <input type="file" class="form-control" id="file" name="file" required>
+                    <input type="file" class="form-control" id="file" name="file"
+                        accept="application/msword,application/pdf" required>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
