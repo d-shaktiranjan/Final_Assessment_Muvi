@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="password" class="form-control" id="password" name="password">
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
-            <a href="/task/final/signup.php" type="button" class="btn btn-primary">Create new Account</a>
+            <a href="signup.php" type="button" class="btn btn-primary">Create new Account</a>
         </form>
         <?php
         if ($isError) showAlert(false, $reason, "")

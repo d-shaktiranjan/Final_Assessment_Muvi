@@ -3,6 +3,10 @@
 session_start();
 if ($_SESSION['loggedin']) header("location: er.php");
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    echo "in post";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -21,10 +25,10 @@ if ($_SESSION['loggedin']) header("location: er.php");
     <div class="container">
         <h2>Signup Here</h2>
         <hr>
-        <form>
+        <form method="POST">
             <div class="mb-3">
                 <label for="userName" class="form-label">Name</label>
-                <input type="text" class="form-control" id="userName" name="userName">
+                <input type="text" class="form-control" id="userName" name="userName" required>
             </div>
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
@@ -32,14 +36,14 @@ if ($_SESSION['loggedin']) header("location: er.php");
             </div>
             <div class="mb-3">
                 <label for="mobile" class="form-label">Mobile Number</label>
-                <input type="number" class="form-control" id="mobile" name="mobile">
+                <input type="number" class="form-control" id="mobile" name="mobile" required>
             </div>
             <div class="mb-3">
                 <label for="designation" class="form-label">Designation</label>
-                <input type="text" class="form-control" id="designation" name="designation">
+                <input type="text" class="form-control" id="designation" name="designation" required>
             </div>
             <button type="submit" class="btn btn-primary">Signup</button>
-            <a href="/task/final" type="button" class="btn btn-primary">Already have an account</a>
+            <a href="index.php" type="button" class="btn btn-primary">Already have an account</a>
         </form>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
