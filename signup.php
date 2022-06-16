@@ -25,11 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         include "utils/password.php";
         include "utils/send.php";
         $password = generatePassword();
-        $status = sendMail($email, $userName, $password);
+        $mailStatus = sendMail($email, $userName, $password);
         $hash = password_hash($password, PASSWORD_DEFAULT);
-        $sql = "INSERT INTO `employee` (`name`, `email`, `mobile`, `designation`, `password`) VALUES ('$userName', '$email', '$mobile', '$designation', '$hash')";
-        $res = mysqli_query($conn, $sql);
-        if ($res) $isAdded = true;
+        if ($mailStatus) {
+            $sql = "INSERT INTO `employee` (`name`, `email`, `mobile`, `designation`, `password`) VALUES ('$userName', '$email', '$mobile', '$designation', '$hash')";
+            $res = mysqli_query($conn, $sql);
+        }
+        if ($res && $mailStatus) $isAdded = true;
         else {
             $isError = true;
             $reason = "Internal error";

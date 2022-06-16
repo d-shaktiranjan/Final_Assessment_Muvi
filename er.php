@@ -107,6 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label for="file" class="form-label">Add Attachment</label>
                     <input type="file" class="form-control" id="file" name="file"
                         accept="application/msword,application/pdf" required>
+                    <div id="emailHelp" class="form-text">We accept only pdf & docx files.</div>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
