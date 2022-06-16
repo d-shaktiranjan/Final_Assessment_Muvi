@@ -1,5 +1,5 @@
 <?php
-$to      = 'shakti@muvi.com';
+$to      = 'debatashaktiranjan@gmail.com';
 $subject = 'the subject';
 $message = 'hello';
 $headers = array(
