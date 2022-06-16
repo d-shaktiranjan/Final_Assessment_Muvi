@@ -59,6 +59,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="password" class="form-label">Password</label>
                 <input type="password" class="form-control" id="password" name="password" required>
             </div>
+            <div class="form-check form-switch my-2">
+                <input class="form-check-input" type="checkbox" role="switch" id="showPassword">
+                <label class="form-check-label" for="showPassword" id="checkBoxLabel">Show Password</label>
+            </div>
             <button type="submit" class="btn btn-primary">Login</button>
             <a href="signup.php" type="button" class="btn btn-primary">Create new Account</a>
             <a href="forgotPassword.php" type="button" class="btn btn-danger">Forgot Password</a>
@@ -68,6 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/login.js"></script>
 </body>
 
 </html>

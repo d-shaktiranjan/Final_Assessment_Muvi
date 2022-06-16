@@ -2,8 +2,8 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jun 16, 2022 at 11:03 AM
+-- Host: 127.0.0.1
+-- Generation Time: Jun 16, 2022 at 03:15 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -40,14 +40,6 @@ CREATE TABLE `er_data` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `er_data`
---
-
-INSERT INTO `er_data` (`id`, `title`, `descriptions`, `category`, `priority`, `effort`, `pod`, `assignTo`, `file`) VALUES
-(1, 'Fix Api', 'sdf', 'sdf', 'sdf', 'sdf', 'sdf', 2, 'sdf'),
-(2, 'test', 'test', 'bug', 'high', 'high', 'backend', 1, '');
-
---
 -- Indexes for dumped tables
 --
 
@@ -66,7 +58,7 @@ ALTER TABLE `er_data`
 -- AUTO_INCREMENT for table `er_data`
 --
 ALTER TABLE `er_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables

@@ -27,11 +27,11 @@ function getUserName($id)
 
 <body>
     <?php include_once "utils/navbar.php" ?>
-    <div class="container mt-3">
-        <input type="text" name="" id="search" class="search" placeholder="Search">
-        <table class="table">
+    <div class="container mt-3 search">
+        <input type="text" name="" id="search" placeholder="Search" class="searchBox">
+        <table class="table my-2">
             <thead>
-                <tr>
+                <tr class="table-dark">
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
                     <th scope="col">Descriptions</th>
