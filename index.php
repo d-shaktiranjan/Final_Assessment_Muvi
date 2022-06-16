@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if ($_SESSION['loggedin']) header("location: er.php");
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin']) header("location: er.php");
 
 $isError = false;
 $reason = "";
