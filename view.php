@@ -27,6 +27,7 @@ function getUserName($id)
 <body>
     <?php include_once "utils/navbar.php" ?>
     <div class="container mt-3">
+        <input type="text" name="" id="search" float="right">
         <table class="table">
             <thead>
                 <tr>
@@ -41,7 +42,7 @@ function getUserName($id)
                     <th scope="col">View File</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="table">
                 <?php
                 $count = 1;
                 while ($data = mysqli_fetch_assoc($res)) {
@@ -61,7 +62,12 @@ function getUserName($id)
             </tbody>
         </table>
     </div>
+    <!-- BS JS CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JQuerey CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="js/view.js"></script>
 </body>
 
 </html>
