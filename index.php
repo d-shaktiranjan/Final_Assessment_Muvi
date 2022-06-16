@@ -61,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
             <a href="signup.php" type="button" class="btn btn-primary">Create new Account</a>
+            <a href="forgotPassword.php" type="button" class="btn btn-danger">Forgot Password</a>
         </form>
         <?php
         if ($isError) showAlert(false, $reason, "")

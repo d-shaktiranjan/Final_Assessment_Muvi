@@ -9,15 +9,18 @@ $reason = "";
 include "utils/alert.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // get form data
     $userName = $_POST["userName"];
     $email = $_POST["email"];
     $mobile = $_POST["mobile"];
     $designation = $_POST["designation"];
 
+    // check user in db
     include "utils/conn.php";
     $check = "SELECT * FROM `employee` WHERE email='$email'";
     $checkResult = mysqli_query($conn, $check);
     $checkData = mysqli_fetch_assoc($checkResult);
+    // add user
     if ($checkData == null) {
         include "utils/password.php";
         include "utils/send.php";
@@ -65,8 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-                <label for="mobile" class="form-label">Mobile Number</label>
-                <input type="number" class="form-control" id="mobile" name="mobile" required>
+                <label for="mobile" class="form-label">Mobile Number (Optional)</label>
+                <input type="number" class="form-control" id="mobile" name="mobile">
             </div>
             <div class="mb-3">
                 <label for="designation" class="form-label">Designation</label>

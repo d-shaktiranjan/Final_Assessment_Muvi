@@ -8,6 +8,7 @@ $isError = false;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include "utils/conn.php";
 
+    // get form data
     $title = $_POST["title"];
     $descriptions = $_POST["descriptions"];
     $category = $_POST["category"];
@@ -16,11 +17,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pod = $_POST["pod"];
     $assignTo = $_POST["assignTo"];
 
+    // file upload part
     $fileName = $_FILES['file']['name'];
     $tempFile = $_FILES['file']['tmp_name'];
     $path = "./static/" . $fileName;
     move_uploaded_file($tempFile, $path);
 
+    // db insert part
     $sql = "INSERT INTO `er_data` (`title`, `descriptions`, `category`, `priority`, `effort`, `pod`, `assignTo`, `file`) VALUES ('$title', '$descriptions', '$category', '$priority', '$effort', '$pod', '$assignTo', '')";
     $res = mysqli_query($conn, $sql);
     if ($res) $isAdded = true;
