@@ -7,7 +7,7 @@ fetch("/final/api/getEmployeeName.php", {
     .then(data => {
         for (let i in data) {
             console.log(data[i]);
-            datalistOptions.innerHTML += `<option data-value="${i}">${data[i]}</option>`;
+            datalistOptions.innerHTML += `<option value="${i}">${data[i]}</option>`;
         }
     })
     .catch((error) => {

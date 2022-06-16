@@ -1,6 +1,27 @@
 <?php
 session_start();
 if (!$_SESSION['loggedin']) header("location: index.php");
+include "utils/alert.php";
+$isAdded = false;
+$isError = false;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    include "utils/conn.php";
+
+    $title = $_POST["title"];
+    $descriptions = $_POST["descriptions"];
+    $category = $_POST["category"];
+    $priority = $_POST["priority"];
+    $effort = $_POST["effort"];
+    $pod = $_POST["pod"];
+    $assignTo = $_POST["assignTo"];
+
+    $sql = "INSERT INTO `er_data` (`title`, `descriptions`, `category`, `priority`, `effort`, `pod`, `assignTo`, `file`) VALUES ('$title', '$descriptions', '$category', '$priority', '$effort', '$pod', '$assignTo', '')";
+    $res = mysqli_query($conn, $sql);
+    if ($res) $isAdded = true;
+    else $isError = true;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +40,7 @@ if (!$_SESSION['loggedin']) header("location: index.php");
     <div class="container">
         <h2>Add ER</h2>
         <hr>
-        <form>
+        <form method="POST">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control" id="title" name="title" required>
@@ -70,18 +91,20 @@ if (!$_SESSION['loggedin']) header("location: index.php");
                 </div>
                 <div class="form mb-3 col">
                     <label for="assignTo" class="form-label">Assigned to</label>
-                    <input class="form-control" list="datalistOptions" id="assignTo" name="assignTo"
-                        placeholder="Type to search..." required>
-                    <datalist id="datalistOptions">
-                    </datalist>
+                    <select id="datalistOptions" name="assignTo">
+                    </select>
                 </div>
                 <div class="mb-3 col">
-                    <label for="title" class="form-label">Add Attachment</label>
-                    <input type="file" class="form-control" id="title" name="title" required>
+                    <label for="file" class="form-label">Add Attachment</label>
+                    <input type="file" class="form-control" id="file" name="file">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <?php
+        if ($isAdded) showAlert(true, "Your ER added", "");
+        if ($isError) showAlert(false, "Sorry unable to add", "Try after some time");
+        ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
