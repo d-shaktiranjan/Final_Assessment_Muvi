@@ -1,5 +1,9 @@
 ## Install Xampp
 
+### Then create a folder named files
+```bash
+mkdir static
+```
 ### Create a DB named muvi
 
 ```sql

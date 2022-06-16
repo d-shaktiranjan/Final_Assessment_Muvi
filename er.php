@@ -16,6 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pod = $_POST["pod"];
     $assignTo = $_POST["assignTo"];
 
+    $fileName = $_FILES['file']['name'];
+    $tempFile = $_FILES['file']['tmp_name'];
+    $path = "./static/" . $fileName;
+    move_uploaded_file($tempFile, $path);
+
     $sql = "INSERT INTO `er_data` (`title`, `descriptions`, `category`, `priority`, `effort`, `pod`, `assignTo`, `file`) VALUES ('$title', '$descriptions', '$category', '$priority', '$effort', '$pod', '$assignTo', '')";
     $res = mysqli_query($conn, $sql);
     if ($res) $isAdded = true;
@@ -40,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <h2>Add ER</h2>
         <hr>
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" class="form-control" id="title" name="title" required>
