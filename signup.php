@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+if ($_SESSION['loggedin']) header("location: er.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
