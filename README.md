@@ -4,6 +4,9 @@
 ```bash
 mkdir static
 ```
+
+## [Mail setup](utils/mailSetup.md)
+
 ### Create a DB named muvi
 
 ```sql

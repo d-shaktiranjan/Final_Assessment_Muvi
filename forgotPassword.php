@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include "utils/password.php";
     include "utils/send.php";
     $password = generatePassword();
-    $status = sendMail($email, $userName, $password);
+    $status = sendMail($email, "", $password);
     $hash = password_hash($password, PASSWORD_DEFAULT);
     $sql = "UPDATE `employee` SET `password` = '$hash' WHERE `employee`.`email` = '$email'";
 
