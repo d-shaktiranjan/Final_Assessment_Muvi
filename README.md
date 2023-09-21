@@ -5,7 +5,7 @@
 mkdir static
 ```
 
-## [Mail setup](utils/mailSetup.md)
+### [Mail setup](utils/mailSetup.md)
 
 ### Create a DB named muvi
 
@@ -15,6 +15,3 @@ CREATE DATABASE muvi;
 
 ### 1st import the [sql/employee.sql](sql/employee.sql) file in muvi DB
 ### Then import the [sql/er_data.sql](sql/er_data.sql) file in muvi DB
-
-### Then start Apache2 & MySql
-### [Then visit](http://localhost/final)
